@@ -50,7 +50,7 @@ SystemFileAssociations registry.
 <a name="installation"></a>
 ## Installation
 
-There are three main steps. Detailed instructions below.
+There are three steps. Detailed instructions below.
 
 1. Install [BurntToast](https://github.com/Windos/BurntToast/) if not already installed.
 1. Copy `copy-gps.ps1` somewhere on your Windows PC.
