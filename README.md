@@ -117,8 +117,15 @@ Follow these steps to manually add the keys.
 <a name="notes"></a>
 ## Notes
 
-- If Focus Assist is set to Priority Only or Alarms Only, the message will go directly to the notification center and
-  not render as a toast popup. To allow the popup to appear, turn off Focus Assist or add PowerShell as a priority app.
+- Notifications must be enabled for the notification to appear. To enable, go to Settings > System > Notifications.
+  Regardless of this setting, the GPS coodinates are copied to the clipboard.
+
+  ![Enable notifications](images/copy-gps-notifications.jpg)
+
+- The toast notification may not appear if the do not disturb setting is enabled (Windows 11) or Focus Assist is set to 
+  Priority Only or Alarms Only (Windows 10). In these cases, the message is sent directly to the notification center and 
+  not displayed as a popup. Note that the buttons that open Google Maps and Gaia are not shown in the notification center.
+  To allow the popup to appear, turn off Focus Assist or add PowerShell as a priority app.
 
   ![Focus Assist turned off](images/copy-gps-focus-assist.jpg)
 
