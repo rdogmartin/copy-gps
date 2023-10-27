@@ -9,7 +9,7 @@ and shows a toast notification with handy links to the location in Google Maps a
 
 ## Why It's Useful
 
-Although the file properties dialog will display the GPS coordinates of an image in File Manager, there is no way to copy
+Although the file properties dialog will display the GPS coordinates of an image in File Explorer, there is no way to copy
 it to the clipboard, making it painful to try to view the location in a service like Google Maps or Gaia GPS. I needed
 a way to quickly extract the location from a photo and view its location on a map.
 
@@ -77,7 +77,7 @@ Follow these steps to manually add the keys.
 
 ## Using it
 
-- In File Manager, hold the shift key and right-click a .jpg or .jpeg image and click Copy GPS coordinates.
+- In File Explorer, hold the shift key and right-click a .jpg or .jpeg image and click Copy GPS coordinates.
 
    ![Add Command key to registry](images/copy-gps-right-click-zoomed.jpg)
 
