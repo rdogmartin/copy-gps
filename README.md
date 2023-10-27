@@ -10,10 +10,17 @@ and shows a toast notification with handy links to the location in Google Maps a
 ## Why It's Useful
 
 Although the file properties dialog will display the GPS coordinates of an image in File Explorer, there is no way to copy
-it to the clipboard, making it painful to try to view the location in a service like Google Maps or Gaia GPS. I needed
-a way to quickly extract the location from a photo and view its location on a map.
+it to the clipboard, making it painful to try to view the location in a service like Google Maps or Gaia GPS.
 
 ![Toast notification](images/copy-gps-file-properties.jpg)
+
+The built-in Photos app in Windows does show a tiny map when you right-click the image and choose File Info, but there is 
+no way to make the image bigger, open the location in another window or copy the GPS coordinates. It's almost useless.
+
+![Toast notification](images/copy-gps-photos-app-info.jpg)
+
+In short, I need a way to quickly extract the location from a photo and view its location on a map, especially
+[Google Maps](https://www.google.com/maps) and [Gaia GPS](https://www.gaiagps.com/map/).
 
 ## How It Works
 
