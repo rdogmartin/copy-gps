@@ -19,7 +19,7 @@ and shows a toast notification with handy links to the location in Google Maps a
 <a name="why-its-useful"></a>
 ## Why it's useful
 
-Although the file properties dialog will display the GPS coordinates of an image in File Explorer, there is no way to copy
+Although the file properties dialog can display the GPS coordinates of an image in File Explorer, there is no way to copy
 it to the clipboard, making it painful to try to view the location in a service like Google Maps or Gaia GPS.
 
 ![Toast notification](images/copy-gps-file-properties.jpg)
@@ -35,10 +35,10 @@ In short, I need a way to quickly extract the location from a photo and view its
 <a name="how-it-works"></a>
 ## How it works
 
-The main piece is a short PowerShell script that extracts the GPS location data from a .jpg or .jpeg image, copies it to the
+It consists of a short PowerShell script that extracts the GPS location data from a .jpg or .jpeg image, copies it to the
 clipboard, and shows a Windows Toast Notification in the lower right corner. The script is triggered by a right-click
 menu option that appears in File Explorer. This menu option is added by configuring a shell extension in the
-SystemFileAssociations registry.
+`SystemFileAssociations` section of the Windows registry.
 
 <a name="requirements"></a>
 ## Requirements
@@ -53,8 +53,8 @@ SystemFileAssociations registry.
 There are three steps. Detailed instructions below.
 
 1. Install [BurntToast](https://github.com/Windos/BurntToast/) if not already installed.
-1. Copy `copy-gps.ps1` somewhere on your Windows PC.
-1. Add the registry settings that create the right-click menu option for .jpg/.jpeg files in File Explorer.
+1. Copy `copy-gps.ps1` somewhere on your PC.
+1. Add the registry settings that create the right-click menu option for .jpg and .jpeg files in File Explorer.
 
 ### Install BurntToast
 
