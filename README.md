@@ -7,6 +7,14 @@ and shows a toast notification with handy links to the location in Google Maps a
 
 ![Toast notification](images/copy-gps-toast.jpg)
 
+## Why It's Useful
+
+Although the file properties dialog will display the GPS coordinates of an image in File Manager, there is no way to copy
+it to the clipboard, making it painful to try to view the location in a service like Google Maps or Gaia GPS. I needed
+a way to quickly extract the location from a photo and view its location on a map.
+
+![Toast notification](images/copy-gps-file-properties.jpg)
+
 ## How It Works
 
 The main piece is a short PowerShell script that extracts the GPS location data from a .jpg or .jpeg image, copies it to the
