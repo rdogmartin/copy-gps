@@ -69,11 +69,11 @@ Follow these steps to manually add the keys.
 
 ## Using it
 
-- In File Manager, shift-right click any .jpg or .jpeg image and click Copy GPS coordinates.
+- In File Manager, hold the shift key and right-click any .jpg or .jpeg image and click Copy GPS coordinates.
 
    ![Add Command key to registry](images/copy-gps-right-click-zoomed.jpg)
 
-  > 💡 TIP: Instead of shift-right click, you can right-click, then choose Show More Options.
+  > 💡 TIP: Alternatively, you can right-click, then choose Show More Options.
 
    ![Add Command key to registry](images/copy-gps-show-more-options.jpg)
 
@@ -84,10 +84,44 @@ Follow these steps to manually add the keys.
 
 ## Notes
 
-- You may need to restart File Explorer for the registry changes to take effect. And remember you have to shift-right 
-  click to see the menu option.
-- The notification includes buttons that open Google Maps and Gaia GPS in the default browser. Update the PowerShell
+- You may need to restart File Explorer for the registry changes to take effect.
+- Remember to hold the shift key when you right-click to see the menu option.
+- The notification includes buttons that open Google Maps and Gaia GPS in the default browser. Edit the PowerShell
   script if you wish to modify this behavior.
-- If the browser is currently hidden, it is not brought to the forefront when clicking the buttons, so you may have to 
+- If the browser is currently hidden, clicking one of the buttons does not bring it to the foreground, so you may have to 
   manually switch to the browser window. This is default PowerShell behavior. There are hacks for dealing with it, but
   I didn't go down that road.
+- One can avoid the BurntToast dependency by creating the toast manually, but achieving the same functionality 
+  (thumbnail image and action buttons) is more difficult. For example, to create a plain text notification, this code
+  can be used as a starter. Credit to [Den Delimarsky](https://den.dev/blog/powershell-windows-notification/).
+
+```powershell
+  function Show-Notification {
+    [cmdletbinding()]
+    Param (
+        [string]
+        $ToastTitle,
+        [string]
+        [parameter(ValueFromPipeline)]
+        $ToastText
+    )
+
+    [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] > $null
+    $Template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText02)
+
+    $RawXml = [xml] $Template.GetXml()
+    ($RawXml.toast.visual.binding.text|where {$_.id -eq "1"}).AppendChild($RawXml.CreateTextNode($ToastTitle)) > $null
+    ($RawXml.toast.visual.binding.text|where {$_.id -eq "2"}).AppendChild($RawXml.CreateTextNode($ToastText)) > $null
+
+    $SerializedXml = New-Object Windows.Data.Xml.Dom.XmlDocument
+    $SerializedXml.LoadXml($RawXml.OuterXml)
+
+    $Toast = [Windows.UI.Notifications.ToastNotification]::new($SerializedXml)
+    $Toast.Tag = "PowerShell"
+    $Toast.Group = "PowerShell"
+    $Toast.ExpirationTime = [DateTimeOffset]::Now.AddMinutes(1)
+
+    $Notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("PowerShell")
+    $Notifier.Show($Toast);
+}
+```
