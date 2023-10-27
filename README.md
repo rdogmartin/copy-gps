@@ -12,7 +12,7 @@ and shows a toast notification with handy links to the location in Google Maps a
 The main piece is a short PowerShell script that extracts the GPS location data from a .jpg or .jpeg image, copies it to the
 clipboard, and shows a Windows Toast Notification in the lower right corner. The script is triggered by a right-click
 menu option that appears in File Explorer. This menu option is added by configuring a shell extension in the
-SystemFileAssociations registry section.
+SystemFileAssociations registry.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ SystemFileAssociations registry section.
 There are three main steps. Detailed instructions below.
 
 1. Install [BurntToast](https://github.com/Windos/BurntToast/) if not already installed.
-1. Copy `copy-gps.ps1` to somewhere on your Windows PC.
+1. Copy `copy-gps.ps1` somewhere on your Windows PC.
 1. Add the registry settings that create the right-click menu option for .jpg/.jpeg files in File Explorer.
 
 ### Install BurntToast
@@ -69,7 +69,7 @@ Follow these steps to manually add the keys.
 
 ## Using it
 
-- In File Manager, hold the shift key and right-click any .jpg or .jpeg image and click Copy GPS coordinates.
+- In File Manager, hold the shift key and right-click a .jpg or .jpeg image and click Copy GPS coordinates.
 
    ![Add Command key to registry](images/copy-gps-right-click-zoomed.jpg)
 
@@ -80,6 +80,10 @@ Follow these steps to manually add the keys.
 - A PowerShell window will briefly appear and close, following by a Windows Toast Notification.
 
   ![Toast notification](images/copy-gps-toast.jpg)
+
+- If the image does not contain GPS data, this message will appear:
+
+  ![Toast notification for image with no GPS data](images/copy-gps-no-gps-data.jpg)
 
 
 ## Notes
