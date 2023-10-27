@@ -43,7 +43,7 @@ SystemFileAssociations registry.
 <a name="requirements"></a>
 ## Requirements
 
-- Windows. I'm not sure what the oldest version this runs on. I'm running it on Windows 11.
+- Windows 10 and higher
 - [BurntToast](https://github.com/Windos/BurntToast/) - PowerShell Module for displaying Windows Toast Notifications.
   See below for installation instructions.
   
@@ -117,13 +117,22 @@ Follow these steps to manually add the keys.
 <a name="notes"></a>
 ## Notes
 
+- If Focus Assist is set to Priority Only or Alarms Only, the message will go directly to the notification center and
+  not render as a toast popup. To allow the popup to appear, turn off Focus Assist or add PowerShell as a priority app.
+
+  ![Focus Assist turned off](images/copy-gps-focus-assist.jpg)
+
 - You may need to restart File Explorer for the registry changes to take effect.
+
 - Remember to hold the shift key when you right-click to see the menu option.
+
 - The notification includes buttons that open Google Maps and Gaia GPS in the default browser. Edit the PowerShell
   script if you wish to modify this behavior.
+
 - If the browser is currently hidden, clicking one of the buttons does not bring it to the foreground, so you may have to 
   manually switch to the browser window. This is default PowerShell behavior. There are hacks for dealing with it, but
   I didn't go down that road.
+
 - One can avoid the BurntToast dependency by creating the toast manually, but achieving the same functionality 
   (thumbnail image and action buttons) is more difficult. For example, to create a plain text notification, this code
   can be used as a starter. Credit to [Den Delimarsky](https://den.dev/blog/powershell-windows-notification/).
