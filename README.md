@@ -3,11 +3,20 @@
 A Windows shell extension that adds a context menu item to copy the GPS location data from a JPG image to the clipboard
 and shows a toast notification with handy links to the location in Google Maps and Gaia GPS.
 
+## Table of contents
+
+- [Why it's useful](#why-its-useful)
+- [How it works](#how-it-works)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Using it](#using-it)
+- [Notes](#notes)
+
 ![Shell extension showing right-click menu option](images/copy-gps-right-click.jpg)
 
 ![Toast notification](images/copy-gps-toast.jpg)
 
-## Why It's Useful
+## Why it's useful {#why-its-useful}
 
 Although the file properties dialog will display the GPS coordinates of an image in File Explorer, there is no way to copy
 it to the clipboard, making it painful to try to view the location in a service like Google Maps or Gaia GPS.
@@ -22,20 +31,20 @@ no way to make the image bigger, open the location in another window or copy the
 In short, I need a way to quickly extract the location from a photo and view its location on a map, especially
 [Google Maps](https://www.google.com/maps) and [Gaia GPS](https://www.gaiagps.com/map/).
 
-## How It Works
+## How it works {#how-it-works}
 
 The main piece is a short PowerShell script that extracts the GPS location data from a .jpg or .jpeg image, copies it to the
 clipboard, and shows a Windows Toast Notification in the lower right corner. The script is triggered by a right-click
 menu option that appears in File Explorer. This menu option is added by configuring a shell extension in the
 SystemFileAssociations registry.
 
-## Requirements
+## Requirements {#requirements}
 
 - Windows. I'm not sure what the oldest version this runs on. I'm running it on Windows 11.
 - [BurntToast](https://github.com/Windos/BurntToast/) - PowerShell Module for displaying Windows Toast Notifications.
   See below for installation instructions.
 
-## Installation
+## Installation {#installation}
 
 There are three main steps. Detailed instructions below.
 
@@ -82,7 +91,7 @@ Follow these steps to manually add the keys.
    ![Add copy-gps key to registry](images/copy-gps-regedit-1.jpg)
    ![Add Command key to registry](images/copy-gps-regedit-2.jpg)
 
-## Using it
+## Using it {#using-it}
 
 - In File Explorer, hold the shift key and right-click a .jpg or .jpeg image and click Copy GPS coordinates.
 
@@ -101,7 +110,7 @@ Follow these steps to manually add the keys.
   ![Toast notification for image with no GPS data](images/copy-gps-no-gps-data.jpg)
 
 
-## Notes
+## Notes {#notes}
 
 - You may need to restart File Explorer for the registry changes to take effect.
 - Remember to hold the shift key when you right-click to see the menu option.
